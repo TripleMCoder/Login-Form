@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class RegisterVC: UIViewController, UITextFieldDelegate {
     
@@ -16,6 +17,7 @@ class RegisterVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordErrLbl: UILabel!
     @IBOutlet weak var confirmPasswordTxtField: UITextField!
     @IBOutlet weak var confirmPasswordErrLbl: UILabel!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,11 +34,19 @@ class RegisterVC: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func signupBtnPressed(_ sender: Any) {
-        if checkErrors() {
-            print("There is an Err")
-        }
-        else {
-            print("Done")
+        if !checkErrors() {
+            spinner.startAnimating()
+            Auth.auth().createUser(withEmail: emailTxtField.text!, password: passwordTxtField.text!) { (authResult, err) in
+                self.spinner.stopAnimating()
+                if err == nil {
+                    print("Done")
+                }
+                else {
+                    let alert = UIAlertController(title: "Sign Up Failed", message: err!.localizedDescription, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
         }
     }
     

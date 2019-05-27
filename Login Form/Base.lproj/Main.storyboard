@@ -109,12 +109,21 @@
                                     <constraint firstAttribute="trailing" secondItem="XcB-ht-3va" secondAttribute="trailing" constant="30" id="s21-zL-gLp"/>
                                 </constraints>
                             </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="y0G-fc-HLt">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="y0G-fc-HLt" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="A2S-8j-8Uj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="y0G-fc-HLt" secondAttribute="trailing" id="BOE-ZB-PTF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="buA-OI-Z6n" secondAttribute="trailing" constant="15" id="KLa-7I-s3a"/>
                             <constraint firstItem="buA-OI-Z6n" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="SnF-eq-rhx"/>
                             <constraint firstItem="buA-OI-Z6n" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="UgE-nj-JcA"/>
+                            <constraint firstItem="y0G-fc-HLt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sje-ZT-cRB"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="y0G-fc-HLt" secondAttribute="bottom" id="ysL-11-5Lo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -123,6 +132,7 @@
                         <outlet property="emailTxtField" destination="uad-2E-7DS" id="4Xq-pK-LQn"/>
                         <outlet property="passwordErrLbl" destination="xga-HI-xZD" id="MCs-c4-jd9"/>
                         <outlet property="passwordTxtField" destination="FXi-0q-9L9" id="I2O-Ve-aA5"/>
+                        <outlet property="spinner" destination="y0G-fc-HLt" id="8OB-ej-4Ur"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -280,11 +290,20 @@
                                     <constraint firstAttribute="trailing" secondItem="PaI-k1-4Qo" secondAttribute="trailing" constant="30" id="rNa-uD-E9K"/>
                                 </constraints>
                             </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="NSw-Nf-VdP">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="pc1-Jl-aQv" firstAttribute="leading" secondItem="dhd-fb-RHT" secondAttribute="leading" constant="15" id="74o-Mo-to5"/>
+                            <constraint firstItem="NSw-Nf-VdP" firstAttribute="leading" secondItem="dhd-fb-RHT" secondAttribute="leading" id="7CY-oN-3CD"/>
+                            <constraint firstItem="NSw-Nf-VdP" firstAttribute="top" secondItem="Ouy-1D-b2A" secondAttribute="top" id="ChJ-QY-erN"/>
+                            <constraint firstItem="dhd-fb-RHT" firstAttribute="trailing" secondItem="NSw-Nf-VdP" secondAttribute="trailing" id="Jup-EZ-pPL"/>
                             <constraint firstItem="pc1-Jl-aQv" firstAttribute="centerY" secondItem="Ouy-1D-b2A" secondAttribute="centerY" id="R86-wP-eqs"/>
+                            <constraint firstItem="dhd-fb-RHT" firstAttribute="bottom" secondItem="NSw-Nf-VdP" secondAttribute="bottom" id="ZcY-TM-Jqd"/>
                             <constraint firstItem="dhd-fb-RHT" firstAttribute="trailing" secondItem="pc1-Jl-aQv" secondAttribute="trailing" constant="15" id="pap-7r-dFc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dhd-fb-RHT"/>
@@ -297,6 +316,7 @@
                         <outlet property="emailTxtField" destination="tBz-mR-pBy" id="pfR-gH-VWU"/>
                         <outlet property="passwordErrLbl" destination="toY-iO-B89" id="nTB-qh-L8z"/>
                         <outlet property="passwordTxtField" destination="stN-XT-mua" id="hye-f2-nIk"/>
+                        <outlet property="spinner" destination="NSw-Nf-VdP" id="cJe-aq-bXC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CKC-kT-gI4" userLabel="First Responder" sceneMemberID="firstResponder"/>

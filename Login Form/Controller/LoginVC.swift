@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginVC: UIViewController, UITextFieldDelegate {
     
@@ -14,6 +15,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailErrLbl: UILabel!
     @IBOutlet weak var passwordTxtField: UITextField!
     @IBOutlet weak var passwordErrLbl: UILabel!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,11 +30,19 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func loginBtnPressed(_ sender: Any) {
-        if checkErrors() {
-            print("There is an Err")
-        }
-        else {
-            print("Done")
+        if !checkErrors() {
+            spinner.startAnimating()
+            Auth.auth().signIn(withEmail: emailTxtField.text!, password: passwordTxtField.text!) { (authResult, err) in
+                self.spinner.stopAnimating()
+                if err == nil {
+                    print("Done")
+                }
+                else {
+                    let alert = UIAlertController(title: "Log In Failed", message: err!.localizedDescription, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
         }
     }
     

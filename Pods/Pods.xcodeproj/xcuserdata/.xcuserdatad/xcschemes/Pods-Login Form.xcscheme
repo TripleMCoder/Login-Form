@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C5709C1EC39341FB0C1D36BC362C933A"
+               BlueprintIdentifier = "71C13C8B93F86402BEBA6853D740F09A"
                BlueprintName = "Pods-Login Form"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "Pods-Login Form.framework">
