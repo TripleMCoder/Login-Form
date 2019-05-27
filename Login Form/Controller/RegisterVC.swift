@@ -59,15 +59,18 @@ class RegisterVC: UIViewController, UITextFieldDelegate, GIDSignInUIDelegate {
         loginManager.logIn(permissions: [ .publicProfile ], viewController: self) { loginResult in
             switch loginResult {
             case .failed(let error):
-                print(error)
+                let alert = UIAlertController(title: "Sign Up Failed", message: error.localizedDescription, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
             case .cancelled:
                 print("User cancelled login.")
             case .success(let accessToken):
-                print("Logged in!")
                 let credential = FacebookAuthProvider.credential(withAccessToken: accessToken.token.tokenString)
                 Auth.auth().signIn(with: credential, completion: { (authResult, error) in
                     if let error = error {
-                        print(error.localizedDescription)
+                        let alert = UIAlertController(title: "Sign Up Failed", message: error.localizedDescription, preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
                         return
                     }
                     print("Done")
@@ -82,7 +85,9 @@ class RegisterVC: UIViewController, UITextFieldDelegate, GIDSignInUIDelegate {
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
         if let error = error {
-            print(error.localizedDescription)
+            let alert = UIAlertController(title: "Sign Up Failed", message: error.localizedDescription, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
             return
         }
         
@@ -91,7 +96,9 @@ class RegisterVC: UIViewController, UITextFieldDelegate, GIDSignInUIDelegate {
                                                        accessToken: authentication.accessToken)
         Auth.auth().signIn(with: credential) { (authResuly, error) in
             if let error = error {
-                print(error.localizedDescription)
+                let alert = UIAlertController(title: "Sign Up Failed", message: error.localizedDescription, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
                 return
             }
             print("Done")

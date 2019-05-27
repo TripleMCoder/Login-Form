@@ -11,5 +11,8 @@ target 'Login Form' do
   pod 'GoogleSignIn'
   pod 'FacebookCore'
   pod 'FacebookLogin'
+  pod 'Alamofire'
+  pod 'AlamofireImage'
+  pod 'SwiftyJSON'
 
 end
