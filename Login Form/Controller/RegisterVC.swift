@@ -12,7 +12,7 @@ import GoogleSignIn
 import FBSDKCoreKit
 import FBSDKLoginKit
 
-class RegisterVC: UIViewController, UITextFieldDelegate, GIDSignInUIDelegate {
+class RegisterVC: UIViewController, UITextFieldDelegate, GIDSignInUIDelegate, GIDSignInDelegate {
     
     @IBOutlet weak var emailTxtField: UITextField!
     @IBOutlet weak var emailErrLbl: UILabel!
@@ -25,6 +25,7 @@ class RegisterVC: UIViewController, UITextFieldDelegate, GIDSignInUIDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance().uiDelegate = self
         self.emailTxtField.delegate = self
         self.passwordTxtField.delegate = self
@@ -49,60 +50,78 @@ class RegisterVC: UIViewController, UITextFieldDelegate, GIDSignInUIDelegate {
                 }
                 else {
                     print("Done")
+                    let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
+                    self.navigationController?.pushViewController(homeVC, animated: true)
                 }
             }
         }
     }
     
     @IBAction func facebookBtnPressed(_ sender: Any) {
+        spinner.startAnimating()
         let loginManager = LoginManager()
         loginManager.logIn(permissions: [ .publicProfile ], viewController: self) { loginResult in
             switch loginResult {
             case .failed(let error):
+                self.spinner.stopAnimating()
                 let alert = UIAlertController(title: "Sign Up Failed", message: error.localizedDescription, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             case .cancelled:
+                self.spinner.stopAnimating()
                 print("User cancelled login.")
             case .success(let accessToken):
                 let credential = FacebookAuthProvider.credential(withAccessToken: accessToken.token.tokenString)
                 Auth.auth().signIn(with: credential, completion: { (authResult, error) in
                     if let error = error {
+                        self.spinner.stopAnimating()
                         let alert = UIAlertController(title: "Sign Up Failed", message: error.localizedDescription, preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
                         self.present(alert, animated: true, completion: nil)
                         return
                     }
+                    self.spinner.stopAnimating()
                     print("Done")
+                    let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
+                    self.navigationController?.pushViewController(homeVC, animated: true)
                 })
             }
         }
     }
     
     @IBAction func googleBtnPressed(_ sender: Any) {
+        spinner.startAnimating()
         GIDSignIn.sharedInstance().signIn()
     }
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
         if let error = error {
+            spinner.stopAnimating()
             let alert = UIAlertController(title: "Sign Up Failed", message: error.localizedDescription, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
             return
         }
-        
-        guard let authentication = user.authentication else { return }
+        guard let authentication = user.authentication else {spinner.stopAnimating(); return }
         let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
                                                        accessToken: authentication.accessToken)
         Auth.auth().signIn(with: credential) { (authResuly, error) in
             if let error = error {
+                self.spinner.stopAnimating()
                 let alert = UIAlertController(title: "Sign Up Failed", message: error.localizedDescription, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
                 self.present(alert, animated: true, completion: nil)
                 return
             }
+            self.spinner.stopAnimating()
             print("Done")
+            let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
+            self.navigationController?.pushViewController(homeVC, animated: true)
         }
+    }
+    
+    @IBAction func loginBtnPressed(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

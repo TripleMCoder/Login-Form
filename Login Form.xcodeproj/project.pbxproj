@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2D47F573229C29CA0011FF42 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47F572229C29CA0011FF42 /* HomeVC.swift */; };
 		2D47F575229C367A0011FF42 /* CountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47F574229C367A0011FF42 /* CountryCell.swift */; };
+		2D47F577229C6E950011FF42 /* RootVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47F576229C6E950011FF42 /* RootVC.swift */; };
 		2D62B0BB229A7EF3009A0926 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D62B0BA229A7EF3009A0926 /* AppDelegate.swift */; };
 		2D62B0BD229A7EF3009A0926 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D62B0BC229A7EF3009A0926 /* LoginVC.swift */; };
 		2D62B0C0229A7EF3009A0926 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D62B0BE229A7EF3009A0926 /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		2D47F572229C29CA0011FF42 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		2D47F574229C367A0011FF42 /* CountryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCell.swift; sourceTree = "<group>"; };
+		2D47F576229C6E950011FF42 /* RootVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootVC.swift; sourceTree = "<group>"; };
 		2D62B0B7229A7EF3009A0926 /* Login Form.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Login Form.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D62B0BA229A7EF3009A0926 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2D62B0BC229A7EF3009A0926 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 		2DD1AA6E229A9F4A00F99B76 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2D47F576229C6E950011FF42 /* RootVC.swift */,
 				2D62B0BC229A7EF3009A0926 /* LoginVC.swift */,
 				2DD1AA71229AA05A00F99B76 /* RegisterVC.swift */,
 				2D47F572229C29CA0011FF42 /* HomeVC.swift */,
@@ -242,6 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D47F577229C6E950011FF42 /* RootVC.swift in Sources */,
 				2DD1AA72229AA05A00F99B76 /* RegisterVC.swift in Sources */,
 				2D47F573229C29CA0011FF42 /* HomeVC.swift in Sources */,
 				2D47F575229C367A0011FF42 /* CountryCell.swift in Sources */,

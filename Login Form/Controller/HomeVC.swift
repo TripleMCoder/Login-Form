@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import Firebase
+import GoogleSignIn
 import Alamofire
 import SwiftyJSON
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 class HomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
@@ -16,6 +20,7 @@ class HomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     var countriesCode = [String]()
     let url = "https://restcountries.eu/rest/v2/all"
     @IBOutlet weak var countryCV: UICollectionView!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +34,9 @@ class HomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func loadCountries(){
+        spinner.startAnimating()
         Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
+            self.spinner.stopAnimating()
             if let error = response.result.error {
                 print(error.localizedDescription)
                 return
@@ -59,12 +66,22 @@ class HomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
             return UICollectionViewCell()
         }
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(width: self.view.frame.width/2, height: collectionView.frame.height)
-//    }
-    
+
     @IBAction func logoutBtnPressed(_ sender: Any) {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            GIDSignIn.sharedInstance().signOut()
+            let manager = LoginManager()
+            manager.logOut()
+            self.navigationController?.popToRootViewController(animated: true)
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+            let alert = UIAlertController(title: "Error signing out", message: signOutError.localizedDescription, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
     }
     
 

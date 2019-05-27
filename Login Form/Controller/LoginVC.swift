@@ -41,6 +41,8 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                 }
                 else {
                     print("Done")
+                    let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
+                    self.navigationController?.pushViewController(homeVC, animated: true)
                 }
             }
         }
