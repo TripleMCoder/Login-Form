@@ -8,8 +8,11 @@
 
 import UIKit
 import Firebase
+import GoogleSignIn
+import FBSDKCoreKit
+import FBSDKLoginKit
 
-class RegisterVC: UIViewController, UITextFieldDelegate {
+class RegisterVC: UIViewController, UITextFieldDelegate, GIDSignInUIDelegate {
     
     @IBOutlet weak var emailTxtField: UITextField!
     @IBOutlet weak var emailErrLbl: UILabel!
@@ -22,6 +25,7 @@ class RegisterVC: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        GIDSignIn.sharedInstance().uiDelegate = self
         self.emailTxtField.delegate = self
         self.passwordTxtField.delegate = self
         self.confirmPasswordTxtField.delegate = self
@@ -36,24 +40,62 @@ class RegisterVC: UIViewController, UITextFieldDelegate {
     @IBAction func signupBtnPressed(_ sender: Any) {
         if !checkErrors() {
             spinner.startAnimating()
-            Auth.auth().createUser(withEmail: emailTxtField.text!, password: passwordTxtField.text!) { (authResult, err) in
+            Auth.auth().createUser(withEmail: emailTxtField.text!, password: passwordTxtField.text!) { (authResult, error) in
                 self.spinner.stopAnimating()
-                if err == nil {
-                    print("Done")
-                }
-                else {
-                    let alert = UIAlertController(title: "Sign Up Failed", message: err!.localizedDescription, preferredStyle: .alert)
+                if let error = error {
+                    let alert = UIAlertController(title: "Sign Up Failed", message: error.localizedDescription, preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
                     self.present(alert, animated: true, completion: nil)
+                }
+                else {
+                    print("Done")
                 }
             }
         }
     }
     
     @IBAction func facebookBtnPressed(_ sender: Any) {
+        let loginManager = LoginManager()
+        loginManager.logIn(permissions: [ .publicProfile ], viewController: self) { loginResult in
+            switch loginResult {
+            case .failed(let error):
+                print(error)
+            case .cancelled:
+                print("User cancelled login.")
+            case .success(let accessToken):
+                print("Logged in!")
+                let credential = FacebookAuthProvider.credential(withAccessToken: accessToken.token.tokenString)
+                Auth.auth().signIn(with: credential, completion: { (authResult, error) in
+                    if let error = error {
+                        print(error.localizedDescription)
+                        return
+                    }
+                    print("Done")
+                })
+            }
+        }
     }
     
     @IBAction func googleBtnPressed(_ sender: Any) {
+        GIDSignIn.sharedInstance().signIn()
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
+        if let error = error {
+            print(error.localizedDescription)
+            return
+        }
+        
+        guard let authentication = user.authentication else { return }
+        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
+                                                       accessToken: authentication.accessToken)
+        Auth.auth().signIn(with: credential) { (authResuly, error) in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            print("Done")
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

@@ -32,15 +32,15 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     @IBAction func loginBtnPressed(_ sender: Any) {
         if !checkErrors() {
             spinner.startAnimating()
-            Auth.auth().signIn(withEmail: emailTxtField.text!, password: passwordTxtField.text!) { (authResult, err) in
+            Auth.auth().signIn(withEmail: emailTxtField.text!, password: passwordTxtField.text!) { (authResult, error) in
                 self.spinner.stopAnimating()
-                if err == nil {
-                    print("Done")
-                }
-                else {
-                    let alert = UIAlertController(title: "Log In Failed", message: err!.localizedDescription, preferredStyle: .alert)
+                if let error = error {
+                    let alert = UIAlertController(title: "Log In Failed", message: error.localizedDescription, preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
                     self.present(alert, animated: true, completion: nil)
+                }
+                else {
+                    print("Done")
                 }
             }
         }

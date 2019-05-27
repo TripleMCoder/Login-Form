@@ -264,7 +264,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                         <state key="normal" image="facebookicon"/>
                                                         <connections>
-                                                            <action selector="facebookBtnPressed:" destination="uXB-s6-g1I" eventType="touchUpInside" id="BBw-bJ-f2f"/>
+                                                            <action selector="facebookBtnPressed:" destination="uXB-s6-g1I" eventType="touchUpInside" id="LYq-fw-72A"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="msQ-tX-FBu">
