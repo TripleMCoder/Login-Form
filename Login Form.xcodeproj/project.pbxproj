@@ -8,18 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		26603E1F6C32C179AF716DC5 /* Pods_Login_Form.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 231D76C20F41D1E59C249C15 /* Pods_Login_Form.framework */; };
-		2D2BACAB229A80DB0087DA08 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D2BACAA229A80DB0087DA08 /* GoogleService-Info.plist */; };
 		2D62B0BB229A7EF3009A0926 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D62B0BA229A7EF3009A0926 /* AppDelegate.swift */; };
 		2D62B0BD229A7EF3009A0926 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D62B0BC229A7EF3009A0926 /* LoginVC.swift */; };
 		2D62B0C0229A7EF3009A0926 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D62B0BE229A7EF3009A0926 /* Main.storyboard */; };
 		2D62B0C2229A7EF5009A0926 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D62B0C1229A7EF5009A0926 /* Assets.xcassets */; };
 		2D62B0C5229A7EF5009A0926 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D62B0C3229A7EF5009A0926 /* LaunchScreen.storyboard */; };
+		2D6C3E4C229BBF2100EA31A9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D6C3E4B229BBF2100EA31A9 /* GoogleService-Info.plist */; };
 		2DD1AA72229AA05A00F99B76 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD1AA71229AA05A00F99B76 /* RegisterVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		231D76C20F41D1E59C249C15 /* Pods_Login_Form.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Login_Form.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D2BACAA229A80DB0087DA08 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2D62B0B7229A7EF3009A0926 /* Login Form.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Login Form.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D62B0BA229A7EF3009A0926 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2D62B0BC229A7EF3009A0926 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -27,6 +26,7 @@
 		2D62B0C1229A7EF5009A0926 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2D62B0C4229A7EF5009A0926 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2D62B0C6229A7EF5009A0926 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2D6C3E4B229BBF2100EA31A9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2DD1AA71229AA05A00F99B76 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		AE75DE1A30490493A5384D29 /* Pods-Login Form.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Login Form.release.xcconfig"; path = "Pods/Target Support Files/Pods-Login Form/Pods-Login Form.release.xcconfig"; sourceTree = "<group>"; };
 		FD95FB9A1C4A8F7B16FD5E26 /* Pods-Login Form.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Login Form.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Login Form/Pods-Login Form.debug.xcconfig"; sourceTree = "<group>"; };
@@ -71,7 +71,7 @@
 				2D62B0C1229A7EF5009A0926 /* Assets.xcassets */,
 				2D62B0C3229A7EF5009A0926 /* LaunchScreen.storyboard */,
 				2D62B0C6229A7EF5009A0926 /* Info.plist */,
-				2D2BACAA229A80DB0087DA08 /* GoogleService-Info.plist */,
+				2D6C3E4B229BBF2100EA31A9 /* GoogleService-Info.plist */,
 			);
 			path = "Login Form";
 			sourceTree = "<group>";
@@ -163,7 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D62B0C5229A7EF5009A0926 /* LaunchScreen.storyboard in Resources */,
-				2D2BACAB229A80DB0087DA08 /* GoogleService-Info.plist in Resources */,
+				2D6C3E4C229BBF2100EA31A9 /* GoogleService-Info.plist in Resources */,
 				2D62B0C2229A7EF5009A0926 /* Assets.xcassets in Resources */,
 				2D62B0C0229A7EF3009A0926 /* Main.storyboard in Resources */,
 			);

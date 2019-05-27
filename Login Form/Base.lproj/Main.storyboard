@@ -27,18 +27,46 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Adress" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uad-2E-7DS">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="XcB-ht-3va">
                                         <rect key="frame" x="30" y="96" width="285" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="email"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FXi-0q-9L9">
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Adress" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uad-2E-7DS">
+                                                <rect key="frame" x="0.0" y="0.0" width="285" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                            </textField>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OB1-gd-5hv">
+                                                <rect key="frame" x="10" y="0.0" width="265" height="0.0"/>
+                                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="14"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="OB1-gd-5hv" firstAttribute="leading" secondItem="XcB-ht-3va" secondAttribute="leading" constant="10" id="2sq-mW-KCg"/>
+                                            <constraint firstItem="uad-2E-7DS" firstAttribute="leading" secondItem="XcB-ht-3va" secondAttribute="leading" id="6RY-Ce-hzd"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="pt5-xx-pmC">
                                         <rect key="frame" x="30" y="151" width="285" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
-                                    </textField>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FXi-0q-9L9">
+                                                <rect key="frame" x="0.0" y="0.0" width="285" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                            </textField>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xga-HI-xZD">
+                                                <rect key="frame" x="10" y="0.0" width="265" height="0.0"/>
+                                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="14"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="xga-HI-xZD" firstAttribute="leading" secondItem="pt5-xx-pmC" secondAttribute="leading" constant="10" id="Zvc-fF-iEy"/>
+                                            <constraint firstItem="FXi-0q-9L9" firstAttribute="leading" secondItem="pt5-xx-pmC" secondAttribute="leading" id="gKu-9a-U7A"/>
+                                        </constraints>
+                                    </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6yM-ey-enp">
                                         <rect key="frame" x="70" y="206" width="205" height="41"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -46,6 +74,9 @@
                                         <state key="normal" title="Log In">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="loginBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fVw-Cv-FHK"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="24f-Gy-xNH">
                                         <rect key="frame" x="48.5" y="272" width="248" height="37"/>
@@ -70,12 +101,12 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="uad-2E-7DS" secondAttribute="trailing" constant="30" id="Dds-Yn-Nsh"/>
+                                    <constraint firstItem="pt5-xx-pmC" firstAttribute="leading" secondItem="buA-OI-Z6n" secondAttribute="leading" constant="30" id="4PC-wg-Ov8"/>
                                     <constraint firstAttribute="trailing" secondItem="6yM-ey-enp" secondAttribute="trailing" constant="70" id="Ijc-Pd-dyQ"/>
-                                    <constraint firstItem="FXi-0q-9L9" firstAttribute="leading" secondItem="buA-OI-Z6n" secondAttribute="leading" constant="30" id="Psd-Eq-61n"/>
+                                    <constraint firstItem="XcB-ht-3va" firstAttribute="leading" secondItem="buA-OI-Z6n" secondAttribute="leading" constant="30" id="NJN-HS-ySW"/>
+                                    <constraint firstAttribute="trailing" secondItem="pt5-xx-pmC" secondAttribute="trailing" constant="30" id="RTd-Tt-5FQ"/>
                                     <constraint firstItem="6yM-ey-enp" firstAttribute="leading" secondItem="buA-OI-Z6n" secondAttribute="leading" constant="70" id="T5I-ip-0hw"/>
-                                    <constraint firstItem="uad-2E-7DS" firstAttribute="leading" secondItem="buA-OI-Z6n" secondAttribute="leading" constant="30" id="UBI-2l-cA0"/>
-                                    <constraint firstAttribute="trailing" secondItem="FXi-0q-9L9" secondAttribute="trailing" constant="30" id="lEg-05-SRK"/>
+                                    <constraint firstAttribute="trailing" secondItem="XcB-ht-3va" secondAttribute="trailing" constant="30" id="s21-zL-gLp"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -87,6 +118,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="emailErrLbl" destination="OB1-gd-5hv" id="GHg-Kk-qFq"/>
+                        <outlet property="emailTxtField" destination="uad-2E-7DS" id="4Xq-pK-LQn"/>
+                        <outlet property="passwordErrLbl" destination="xga-HI-xZD" id="MCs-c4-jd9"/>
+                        <outlet property="passwordTxtField" destination="FXi-0q-9L9" id="I2O-Ve-aA5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -109,24 +146,66 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Adress" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tBz-mR-pBy">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="SpV-ZD-Suj">
                                         <rect key="frame" x="30" y="91" width="285" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="email"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="stN-XT-mua">
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Adress" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tBz-mR-pBy">
+                                                <rect key="frame" x="0.0" y="0.0" width="285" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                            </textField>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p8g-bW-OxD">
+                                                <rect key="frame" x="10" y="0.0" width="265" height="0.0"/>
+                                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="14"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="tBz-mR-pBy" firstAttribute="leading" secondItem="SpV-ZD-Suj" secondAttribute="leading" id="KTt-Bs-y1t"/>
+                                            <constraint firstItem="p8g-bW-OxD" firstAttribute="leading" secondItem="SpV-ZD-Suj" secondAttribute="leading" constant="10" id="lKn-Fp-RYa"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="928-Nz-pGd">
                                         <rect key="frame" x="30" y="141" width="285" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xNb-vh-sFP">
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="stN-XT-mua">
+                                                <rect key="frame" x="0.0" y="0.0" width="285" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                            </textField>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="toY-iO-B89">
+                                                <rect key="frame" x="10" y="0.0" width="265" height="0.0"/>
+                                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="14"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="toY-iO-B89" firstAttribute="leading" secondItem="928-Nz-pGd" secondAttribute="leading" constant="10" id="08P-lf-NcZ"/>
+                                            <constraint firstItem="stN-XT-mua" firstAttribute="leading" secondItem="928-Nz-pGd" secondAttribute="leading" id="h4q-Iw-aB7"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="PaI-k1-4Qo">
                                         <rect key="frame" x="30" y="191" width="285" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
-                                    </textField>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xNb-vh-sFP">
+                                                <rect key="frame" x="0.0" y="0.0" width="285" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                            </textField>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pgM-ep-XMc">
+                                                <rect key="frame" x="10" y="0.0" width="265" height="0.0"/>
+                                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="14"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="xNb-vh-sFP" firstAttribute="leading" secondItem="PaI-k1-4Qo" secondAttribute="leading" id="2f4-jz-mCS"/>
+                                            <constraint firstItem="pgM-ep-XMc" firstAttribute="leading" secondItem="PaI-k1-4Qo" secondAttribute="leading" constant="10" id="wiW-fv-sJq"/>
+                                        </constraints>
+                                    </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lYN-b4-KWe">
                                         <rect key="frame" x="70" y="241" width="205" height="41"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -134,6 +213,9 @@
                                         <state key="normal" title="Sign UP">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="signupBtnPressed:" destination="uXB-s6-g1I" eventType="touchUpInside" id="2EM-lx-VSB"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="kj0-71-t7T">
                                         <rect key="frame" x="43" y="302" width="259.5" height="37"/>
@@ -171,10 +253,16 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="spg-Ez-Cta">
                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                         <state key="normal" image="facebookicon"/>
+                                                        <connections>
+                                                            <action selector="facebookBtnPressed:" destination="uXB-s6-g1I" eventType="touchUpInside" id="BBw-bJ-f2f"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="msQ-tX-FBu">
                                                         <rect key="frame" x="95" y="0.0" width="50" height="50"/>
                                                         <state key="normal" image="googleicon"/>
+                                                        <connections>
+                                                            <action selector="googleBtnPressed:" destination="uXB-s6-g1I" eventType="touchUpInside" id="VsM-1k-H4L"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -182,14 +270,14 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="928-Nz-pGd" firstAttribute="leading" secondItem="pc1-Jl-aQv" secondAttribute="leading" constant="30" id="0I3-y9-yVg"/>
                                     <constraint firstItem="lYN-b4-KWe" firstAttribute="leading" secondItem="pc1-Jl-aQv" secondAttribute="leading" constant="70" id="1lK-Ey-6uP"/>
-                                    <constraint firstAttribute="trailing" secondItem="xNb-vh-sFP" secondAttribute="trailing" constant="30" id="DrT-Hj-DOa"/>
-                                    <constraint firstItem="stN-XT-mua" firstAttribute="leading" secondItem="pc1-Jl-aQv" secondAttribute="leading" constant="30" id="J8b-Jq-uKF"/>
-                                    <constraint firstItem="tBz-mR-pBy" firstAttribute="leading" secondItem="pc1-Jl-aQv" secondAttribute="leading" constant="30" id="MlX-VD-ns0"/>
-                                    <constraint firstItem="xNb-vh-sFP" firstAttribute="leading" secondItem="pc1-Jl-aQv" secondAttribute="leading" constant="30" id="SH8-z8-8y1"/>
-                                    <constraint firstAttribute="trailing" secondItem="tBz-mR-pBy" secondAttribute="trailing" constant="30" id="Sds-b2-ggk"/>
-                                    <constraint firstAttribute="trailing" secondItem="stN-XT-mua" secondAttribute="trailing" constant="30" id="Um8-za-L6K"/>
+                                    <constraint firstItem="PaI-k1-4Qo" firstAttribute="leading" secondItem="pc1-Jl-aQv" secondAttribute="leading" constant="30" id="DSD-e0-2Ni"/>
                                     <constraint firstAttribute="trailing" secondItem="lYN-b4-KWe" secondAttribute="trailing" constant="70" id="X63-yq-BcH"/>
+                                    <constraint firstItem="SpV-ZD-Suj" firstAttribute="leading" secondItem="pc1-Jl-aQv" secondAttribute="leading" constant="30" id="fls-9h-QWy"/>
+                                    <constraint firstAttribute="trailing" secondItem="SpV-ZD-Suj" secondAttribute="trailing" constant="30" id="g7T-Jd-aG7"/>
+                                    <constraint firstAttribute="trailing" secondItem="928-Nz-pGd" secondAttribute="trailing" constant="30" id="phm-0Z-wIi"/>
+                                    <constraint firstAttribute="trailing" secondItem="PaI-k1-4Qo" secondAttribute="trailing" constant="30" id="rNa-uD-E9K"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -202,6 +290,14 @@
                         <viewLayoutGuide key="safeArea" id="dhd-fb-RHT"/>
                     </view>
                     <navigationItem key="navigationItem" id="8T4-sG-d5j"/>
+                    <connections>
+                        <outlet property="confirmPasswordErrLbl" destination="pgM-ep-XMc" id="iXg-5m-s4e"/>
+                        <outlet property="confirmPasswordTxtField" destination="xNb-vh-sFP" id="BRv-Ui-C2D"/>
+                        <outlet property="emailErrLbl" destination="p8g-bW-OxD" id="jRX-nw-Wxh"/>
+                        <outlet property="emailTxtField" destination="tBz-mR-pBy" id="pfR-gH-VWU"/>
+                        <outlet property="passwordErrLbl" destination="toY-iO-B89" id="nTB-qh-L8z"/>
+                        <outlet property="passwordTxtField" destination="stN-XT-mua" id="hye-f2-nIk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CKC-kT-gI4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
